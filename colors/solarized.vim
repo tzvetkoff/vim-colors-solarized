@@ -7,15 +7,15 @@
 " Options and defaults {{{
 " ---------------------------------------------------------------------
 function s:SetOption(name, default)
-    if type(a:default) == type(0)
-        let l:wrap = ""
-    else
-        let l:wrap="\""
-    endif
+  if type(a:default) == type(0)
+    let l:wrap = ""
+  else
+    let l:wrap = "\""
+  endif
 
-    if !exists("g:solarized_".a:name) || g:solarized_{a:name}==a:default
-        exe "let g:solarized_".a:name."=".l:wrap.a:default.l:wrap
-    endif
+  if !exists("g:solarized_".a:name) || g:solarized_{a:name}==a:default
+    exe "let g:solarized_".a:name."=".l:wrap.a:default.l:wrap
+  endif
 endfunction
 
 call s:SetOption("transparent", 0)
@@ -41,69 +41,69 @@ let colors_name = "solarized"
 " We also check to see if user has set solarized (force use of the
 " neutral gray monotone palette component)
 if has("gui_running")
-    let s:vmode       = "gui"
-    let s:base03      = "#000000"
-    let s:base02      = "#073642"
-    let s:base01      = "#586e75"
-    let s:base00      = "#657b83"
-    let s:base0       = "#839496"
-    let s:base1       = "#93a1a1"
-    let s:base2       = "#eee8d5"
-    let s:base3       = "#fdf6e3"
-    let s:yellow      = "#b58900"
-    let s:orange      = "#cb4b16"
-    let s:red         = "#dc322f"
-    let s:magenta     = "#d33682"
-    let s:violet      = "#6c71c4"
-    let s:blue        = "#268bd2"
-    let s:cyan        = "#2aa198"
-    let s:green       = "#719e07"
-    let s:cursor      = "#0f0f0f"
-    let s:linenr      = "#1c1c1c"
+  let s:vmode       = "gui"
+  let s:base03      = "#000000"
+  let s:base02      = "#073642"
+  let s:base01      = "#586e75"
+  let s:base00      = "#657b83"
+  let s:base0       = "#839496"
+  let s:base1       = "#93a1a1"
+  let s:base2       = "#eee8d5"
+  let s:base3       = "#fdf6e3"
+  let s:yellow      = "#b58900"
+  let s:orange      = "#cb4b16"
+  let s:red         = "#dc322f"
+  let s:magenta     = "#d33682"
+  let s:violet      = "#6c71c4"
+  let s:blue        = "#268bd2"
+  let s:cyan        = "#2aa198"
+  let s:green       = "#719e07"
+  let s:cursor      = "#0f0f0f"
+  let s:linenr      = "#1c1c1c"
 else
-    let s:vmode       = "cterm"
-    let s:base03      = "0"
-    let s:base02      = "240"
-    let s:base01      = "244"
-    let s:base00      = "240"
-    let s:base0       = "244"
-    let s:base1       = "245"
-    let s:base2       = "187"
-    let s:base3       = "230"
-    let s:yellow      = "136"
-    let s:orange      = "166"
-    let s:red         = "124"
-    let s:magenta     = "125"
-    let s:violet      = "61"
-    let s:blue        = "33"
-    let s:cyan        = "37"
-    let s:green       = "64"
-    let s:cursor      = "233"
-    let s:linenr      = "234"
+  let s:vmode       = "cterm"
+  let s:base03      = "0"
+  let s:base02      = "240"
+  let s:base01      = "244"
+  let s:base00      = "240"
+  let s:base0       = "244"
+  let s:base1       = "245"
+  let s:base2       = "187"
+  let s:base3       = "230"
+  let s:yellow      = "136"
+  let s:orange      = "166"
+  let s:red         = "124"
+  let s:magenta     = "125"
+  let s:violet      = "61"
+  let s:blue        = "33"
+  let s:cyan        = "37"
+  let s:green       = "64"
+  let s:cursor      = "233"
+  let s:linenr      = "234"
 endif
 " }}}
 
 
 " Formatting options and null values for passthrough effect {{{
 " ---------------------------------------------------------------------
-let s:none            = "NONE"
-let s:none            = "NONE"
-let s:t_none          = "NONE"
-let s:n               = "NONE"
-let s:c               = ",undercurl"
-let s:r               = ",reverse"
-let s:s               = ",standout"
-let s:ou              = ""
-let s:ob              = ""
+let s:none        = "NONE"
+let s:none        = "NONE"
+let s:t_none      = "NONE"
+let s:n           = "NONE"
+let s:c           = ",undercurl"
+let s:r           = ",reverse"
+let s:s           = ",standout"
+let s:ou          = ""
+let s:ob          = ""
 " }}}
 
 
 " Base theme background (none for transparent) {{{
 " ---------------------------------------------------------------------
 if g:solarized_transparent == 1
-    let s:back        = "NONE"
+  let s:back        = "NONE"
 else
-    let s:back        = s:base03
+  let s:back        = s:base03
 endif
 " }}}
 
@@ -179,43 +179,43 @@ exe "let s:fmt_revbb    = ' ".s:vmode."=NONE".s:r.s:bb.   " term=NONE".s:r.s:bb.
 exe "let s:fmt_revbbu   = ' ".s:vmode."=NONE".s:r.s:bb.s:u." term=NONE".s:r.s:bb.s:u."'"
 
 if has("gui_running")
-    exe "let s:sp_none      = ' guisp=".s:none   ."'"
-    exe "let s:sp_back      = ' guisp=".s:back   ."'"
-    exe "let s:sp_base03    = ' guisp=".s:base03 ."'"
-    exe "let s:sp_base02    = ' guisp=".s:base02 ."'"
-    exe "let s:sp_base01    = ' guisp=".s:base01 ."'"
-    exe "let s:sp_base00    = ' guisp=".s:base00 ."'"
-    exe "let s:sp_base0     = ' guisp=".s:base0  ."'"
-    exe "let s:sp_base1     = ' guisp=".s:base1  ."'"
-    exe "let s:sp_base2     = ' guisp=".s:base2  ."'"
-    exe "let s:sp_base3     = ' guisp=".s:base3  ."'"
-    exe "let s:sp_green     = ' guisp=".s:green  ."'"
-    exe "let s:sp_yellow    = ' guisp=".s:yellow ."'"
-    exe "let s:sp_orange    = ' guisp=".s:orange ."'"
-    exe "let s:sp_red       = ' guisp=".s:red    ."'"
-    exe "let s:sp_magenta   = ' guisp=".s:magenta."'"
-    exe "let s:sp_violet    = ' guisp=".s:violet ."'"
-    exe "let s:sp_blue      = ' guisp=".s:blue   ."'"
-    exe "let s:sp_cyan      = ' guisp=".s:cyan   ."'"
+  exe "let s:sp_none      = ' guisp=".s:none   ."'"
+  exe "let s:sp_back      = ' guisp=".s:back   ."'"
+  exe "let s:sp_base03    = ' guisp=".s:base03 ."'"
+  exe "let s:sp_base02    = ' guisp=".s:base02 ."'"
+  exe "let s:sp_base01    = ' guisp=".s:base01 ."'"
+  exe "let s:sp_base00    = ' guisp=".s:base00 ."'"
+  exe "let s:sp_base0     = ' guisp=".s:base0  ."'"
+  exe "let s:sp_base1     = ' guisp=".s:base1  ."'"
+  exe "let s:sp_base2     = ' guisp=".s:base2  ."'"
+  exe "let s:sp_base3     = ' guisp=".s:base3  ."'"
+  exe "let s:sp_green     = ' guisp=".s:green  ."'"
+  exe "let s:sp_yellow    = ' guisp=".s:yellow ."'"
+  exe "let s:sp_orange    = ' guisp=".s:orange ."'"
+  exe "let s:sp_red       = ' guisp=".s:red    ."'"
+  exe "let s:sp_magenta   = ' guisp=".s:magenta."'"
+  exe "let s:sp_violet    = ' guisp=".s:violet ."'"
+  exe "let s:sp_blue      = ' guisp=".s:blue   ."'"
+  exe "let s:sp_cyan      = ' guisp=".s:cyan   ."'"
 else
-    let s:sp_none      = ""
-    let s:sp_back      = ""
-    let s:sp_base03    = ""
-    let s:sp_base02    = ""
-    let s:sp_base01    = ""
-    let s:sp_base00    = ""
-    let s:sp_base0     = ""
-    let s:sp_base1     = ""
-    let s:sp_base2     = ""
-    let s:sp_base3     = ""
-    let s:sp_green     = ""
-    let s:sp_yellow    = ""
-    let s:sp_orange    = ""
-    let s:sp_red       = ""
-    let s:sp_magenta   = ""
-    let s:sp_violet    = ""
-    let s:sp_blue      = ""
-    let s:sp_cyan      = ""
+  let s:sp_none      = ""
+  let s:sp_back      = ""
+  let s:sp_base03    = ""
+  let s:sp_base02    = ""
+  let s:sp_base01    = ""
+  let s:sp_base00    = ""
+  let s:sp_base0     = ""
+  let s:sp_base1     = ""
+  let s:sp_base2     = ""
+  let s:sp_base3     = ""
+  let s:sp_green     = ""
+  let s:sp_yellow    = ""
+  let s:sp_orange    = ""
+  let s:sp_red       = ""
+  let s:sp_magenta   = ""
+  let s:sp_violet    = ""
+  let s:sp_blue      = ""
+  let s:sp_cyan      = ""
 endif
 " }}}
 
@@ -304,9 +304,9 @@ exe "hi! ModeMsg"        .s:fmt_none   .s:fg_blue   .s:bg_none
 exe "hi! LineNr"         .s:fmt_none   .s:fg_none   .s:bg_linenr
 exe "hi! Question"       .s:fmt_bold   .s:fg_cyan   .s:bg_none
 if ( has("gui_running") || &t_Co > 8 )
-    exe "hi! VertSplit"  .s:fmt_none   .s:fg_base00 .s:bg_base00
+  exe "hi! VertSplit"  .s:fmt_none   .s:fg_base00 .s:bg_base00
 else
-    exe "hi! VertSplit"  .s:fmt_revbb  .s:fg_base00 .s:bg_base02
+  exe "hi! VertSplit"  .s:fmt_revbb  .s:fg_base00 .s:bg_base02
 endif
 exe "hi! Title"          .s:fmt_bold   .s:fg_orange .s:bg_none
 exe "hi! VisualNOS"      .s:fmt_stnd   .s:fg_none   .s:bg_base02 .s:fmt_revbb
@@ -315,15 +315,15 @@ exe "hi! WildMenu"       .s:fmt_none   .s:fg_base2  .s:bg_base02 .s:fmt_revbb
 exe "hi! Folded"         .s:fmt_undb   .s:fg_base0  .s:bg_base02  .s:sp_base03
 exe "hi! FoldColumn"     .s:fmt_none   .s:fg_base0  .s:bg_base02
 if has("gui_running")
-    exe "hi! DiffAdd"        .s:fmt_bold   .s:fg_green  .s:bg_base02 .s:sp_green
-    exe "hi! DiffChange"     .s:fmt_bold   .s:fg_yellow .s:bg_base02 .s:sp_yellow
-    exe "hi! DiffDelete"     .s:fmt_bold   .s:fg_red    .s:bg_base02
-    exe "hi! DiffText"       .s:fmt_bold   .s:fg_blue   .s:bg_base02 .s:sp_blue
+  exe "hi! DiffAdd"        .s:fmt_bold   .s:fg_green  .s:bg_base02 .s:sp_green
+  exe "hi! DiffChange"     .s:fmt_bold   .s:fg_yellow .s:bg_base02 .s:sp_yellow
+  exe "hi! DiffDelete"     .s:fmt_bold   .s:fg_red    .s:bg_base02
+  exe "hi! DiffText"       .s:fmt_bold   .s:fg_blue   .s:bg_base02 .s:sp_blue
 else
-    exe "hi! DiffAdd"        .s:fmt_none   .s:fg_green  .s:bg_base02 .s:sp_green
-    exe "hi! DiffChange"     .s:fmt_none   .s:fg_yellow .s:bg_base02 .s:sp_yellow
-    exe "hi! DiffDelete"     .s:fmt_none   .s:fg_red    .s:bg_base02
-    exe "hi! DiffText"       .s:fmt_none   .s:fg_blue   .s:bg_base02 .s:sp_blue
+  exe "hi! DiffAdd"        .s:fmt_none   .s:fg_green  .s:bg_base02 .s:sp_green
+  exe "hi! DiffChange"     .s:fmt_none   .s:fg_yellow .s:bg_base02 .s:sp_yellow
+  exe "hi! DiffDelete"     .s:fmt_none   .s:fg_red    .s:bg_base02
+  exe "hi! DiffText"       .s:fmt_none   .s:fg_blue   .s:bg_base02 .s:sp_blue
 endif
 exe "hi! SignColumn"     .s:fmt_none   .s:fg_none   .s:bg_linenr
 exe "hi! Conceal"        .s:fmt_none   .s:fg_blue   .s:bg_none
@@ -660,11 +660,11 @@ hi! link pandocMetadataTitle             pandocMetadata
 " Highlight Trailing Space {{{
 " ---------------------------------------------------------------------
 if g:solarized_trailing == 1
-    exe "hi! ExtraWhitespace"                .s:bg_red
-    match ExtraWhitespace /\s\+$/
-    autocmd InsertEnter * match ExtraWhitespace /\s\+$/
-    autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-    autocmd BufEnter * match ExtraWhitespace /\s\+$/
-    autocmd BufLeave * call clearmatches()
+  exe "hi! ExtraWhitespace"                .s:bg_red
+  match ExtraWhitespace /\s\+$/
+  autocmd InsertEnter * match ExtraWhitespace /\s\+$/
+  autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+  autocmd BufEnter * match ExtraWhitespace /\s\+$/
+  autocmd BufLeave * call clearmatches()
 endif
 " }}}
