@@ -60,6 +60,8 @@ if has("gui_running")
   let s:green       = "#719e07"
   let s:cursor      = "#0f0f0f"
   let s:linenr      = "#1c1c1c"
+  let s:nontext     = "#282828"
+  let s:spkey       = "#282828"
 else
   let s:vmode       = "cterm"
   let s:base03      = "0"
@@ -80,6 +82,8 @@ else
   let s:green       = "64"
   let s:cursor      = "233"
   let s:linenr      = "234"
+  let s:nontext     = "237"
+  let s:spkey       = "237"
 endif
 " }}}
 
@@ -139,6 +143,8 @@ exe "let s:bg_blue      = ' ".s:vmode."bg=".s:blue   ."'"
 exe "let s:bg_cyan      = ' ".s:vmode."bg=".s:cyan   ."'"
 exe "let s:bg_cursor    = ' ".s:vmode."bg=".s:cursor ."'"
 exe "let s:bg_linenr    = ' ".s:vmode."bg=".s:linenr ."'"
+exe "let s:bg_nontext   = ' ".s:vmode."bg=".s:none   ."'"
+exe "let s:bg_spkey     = ' ".s:vmode."bg=".s:none   ."'"
 
 exe "let s:fg_none      = ' ".s:vmode."fg=".s:none   ."'"
 exe "let s:fg_back      = ' ".s:vmode."fg=".s:back   ."'"
@@ -159,6 +165,8 @@ exe "let s:fg_violet    = ' ".s:vmode."fg=".s:violet ."'"
 exe "let s:fg_blue      = ' ".s:vmode."fg=".s:blue   ."'"
 exe "let s:fg_cyan      = ' ".s:vmode."fg=".s:cyan   ."'"
 exe "let s:fg_linenr    = ' ".s:vmode."fg=".s:base00 ."'"
+exe "let s:fg_nontext   = ' ".s:vmode."fg=".s:nontext."'"
+exe "let s:fg_spkey     = ' ".s:vmode."fg=".s:spkey  ."'"
 
 exe "let s:fmt_none     = ' ".s:vmode."=NONE".          " term=NONE".    "'"
 exe "let s:fmt_bold     = ' ".s:vmode."=NONE".s:b.      " term=NONE".s:b."'"
@@ -290,8 +298,8 @@ exe "hi! Todo"           .s:fmt_bold   .s:fg_magenta.s:bg_none
 
 " Extended highlighting {{{
 " ---------------------------------------------------------------------
-exe "hi! SpecialKey"     .s:fmt_bold   .s:fg_base00 .s:bg_base02
-exe "hi! NonText"        .s:fmt_bold   .s:fg_base00 .s:bg_none
+exe "hi! NonText"        .s:fmt_none   .s:fg_nontext.s:bg_nontext
+exe "hi! SpecialKey"     .s:fmt_none   .s:fg_spkey  .s:bg_spkey
 exe "hi! StatusLine"     .s:fmt_none   .s:fg_base1  .s:bg_base02 .s:fmt_revbb
 exe "hi! StatusLineNC"   .s:fmt_none   .s:fg_base00 .s:bg_base02 .s:fmt_revbb
 exe "hi! Visual"         .s:fmt_none   .s:fg_base01 .s:bg_base03 .s:fmt_revbb
