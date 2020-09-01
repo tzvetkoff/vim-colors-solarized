@@ -1,8 +1,7 @@
-" {{{
+" ---------------------------
 " Scheme: Solarized
 " Author: Latchezar Tzvetkoff
-" }}}
-
+" ---------------------------
 
 " Options and defaults {{{
 " ---------------------------------------------------------------------
@@ -22,7 +21,6 @@ call s:SetOption("transparent", 0)
 call s:SetOption("trailing", 0)
 " }}}
 
-
 " Colorscheme initialization {{{
 " ---------------------------------------------------------------------
 hi clear
@@ -31,7 +29,6 @@ if exists("syntax_on")
 endif
 let colors_name = "solarized"
 " }}}
-
 
 " GUI & CSApprox hexadecimal palettes {{{
 " ---------------------------------------------------------------------
@@ -87,7 +84,6 @@ else
 endif
 " }}}
 
-
 " Formatting options and null values for passthrough effect {{{
 " ---------------------------------------------------------------------
 let s:none        = "NONE"
@@ -101,7 +97,6 @@ let s:ou          = ""
 let s:ob          = ""
 " }}}
 
-
 " Base theme background (none for transparent) {{{
 " ---------------------------------------------------------------------
 if g:solarized_transparent == 1
@@ -111,7 +106,6 @@ else
 endif
 " }}}
 
-
 " Bold, underline and italic {{{
 " ---------------------------------------------------------------------
 let s:b           = ",bold"
@@ -119,7 +113,6 @@ let s:bb          = ""
 let s:u           = ",underline"
 let s:i           = ""
 " }}}
-
 
 " Highlighting primitives {{{
 " ---------------------------------------------------------------------
@@ -227,7 +220,6 @@ else
 endif
 " }}}
 
-
 " Basic highlighting {{{
 " ---------------------------------------------------------------------
 " note that link syntax to avoid duplicate configuration doesn't work with the
@@ -295,7 +287,6 @@ exe "hi! Todo"           .s:fmt_bold   .s:fg_magenta.s:bg_none
 "
 " }}}
 
-
 " Extended highlighting {{{
 " ---------------------------------------------------------------------
 exe "hi! NonText"        .s:fmt_none   .s:fg_nontext.s:bg_nontext
@@ -320,8 +311,8 @@ exe "hi! Title"          .s:fmt_bold   .s:fg_orange .s:bg_none
 exe "hi! VisualNOS"      .s:fmt_stnd   .s:fg_none   .s:bg_base02 .s:fmt_revbb
 exe "hi! WarningMsg"     .s:fmt_bold   .s:fg_red    .s:bg_none
 exe "hi! WildMenu"       .s:fmt_none   .s:fg_base2  .s:bg_base02 .s:fmt_revbb
-exe "hi! Folded"         .s:fmt_undb   .s:fg_base0  .s:bg_base02  .s:sp_base03
-exe "hi! FoldColumn"     .s:fmt_none   .s:fg_base0  .s:bg_base02
+exe "hi! Folded"         .s:fmt_undb   .s:fg_linenr .s:bg_linenr  .s:sp_base03
+exe "hi! FoldColumn"     .s:fmt_none   .s:fg_base0  .s:bg_linenr
 if has("gui_running")
   exe "hi! DiffAdd"        .s:fmt_bold   .s:fg_green  .s:bg_base02 .s:sp_green
   exe "hi! DiffChange"     .s:fmt_bold   .s:fg_yellow .s:bg_base02 .s:sp_yellow
@@ -347,14 +338,13 @@ exe "hi! TabLine"        .s:fmt_undr   .s:fg_base0  .s:bg_base02  .s:sp_base0
 exe "hi! TabLineFill"    .s:fmt_undr   .s:fg_base0  .s:bg_base02  .s:sp_base0
 exe "hi! TabLineSel"     .s:fmt_undr   .s:fg_base01 .s:bg_base2   .s:sp_base0  .s:fmt_revbbu
 exe "hi! CursorColumn"   .s:fmt_none   .s:fg_none   .s:bg_base02
-exe "hi! CursorLineNr"   .s:fmt_none   .s:fg_linenr .s:bg_cursor
+exe "hi! CursorLineNr"   .s:fmt_bold   .s:fg_linenr .s:bg_cursor
 exe "hi! CursorLine"     .s:fmt_none   .s:fg_none   .s:bg_cursor
 exe "hi! ColorColumn"    .s:fmt_none   .s:fg_none   .s:bg_base02
 exe "hi! Cursor"         .s:fmt_none   .s:fg_base03 .s:bg_base0
 hi! link lCursor Cursor
 exe "hi! MatchParen"     .s:fmt_bold   .s:fg_red    .s:bg_base01
 " }}}
-
 
 " vim syntax highlighting {{{
 " ---------------------------------------------------------------------
@@ -384,13 +374,11 @@ exe "hi! vimHiGroup"        .s:fmt_none    .s:fg_blue   .s:bg_none
 exe "hi! vimGroup"          .s:fmt_undb    .s:fg_blue   .s:bg_none
 " }}}
 
-
 " diff highlighting {{{
 " ---------------------------------------------------------------------
 hi! link diffAdded Statement
 hi! link diffLine Identifier
 " }}}
-
 
 " git & gitcommit highlighting {{{
 " ---------------------------------------------------------------------
@@ -444,7 +432,6 @@ hi! link gitcommitUnmergedArrow  gitcommitUnmergedFile
 "exe "hi! gitcommitBlank"
 " }}}
 
-
 " html highlighting {{{
 " ---------------------------------------------------------------------
 exe "hi! htmlTag"           .s:fmt_none .s:fg_base01 .s:bg_none
@@ -456,14 +443,12 @@ exe "hi! htmlArg"           .s:fmt_none .s:fg_base00 .s:bg_none
 exe "hi! javaScript"        .s:fmt_none .s:fg_yellow .s:bg_none
 " }}}
 
-
 " perl highlighting {{{
 " ---------------------------------------------------------------------
 exe "hi! perlHereDoc"    . s:fg_base1  .s:bg_back   .s:fmt_none
 exe "hi! perlVarPlain"   . s:fg_yellow .s:bg_back   .s:fmt_none
 exe "hi! perlStatementFileDesc". s:fg_cyan.s:bg_back.s:fmt_none
 " }}}
-
 
 " tex highlighting {{{
 " ---------------------------------------------------------------------
@@ -498,7 +483,6 @@ exe "hi! rubyDefine"     . s:fg_base1  .s:bg_back   .s:fmt_bold
 "hi! link rubyClassVariable     Identifier
 "hi! link rubyConstant          Type
 " }}}
-
 
 " haskell syntax highlighting {{{
 " ---------------------------------------------------------------------
@@ -541,7 +525,6 @@ hi! link hsModuleWhereLabel  hsModuleStartLabel
 exe "hi! hsNiceOperator"     . s:fg_cyan   .s:bg_none   .s:fmt_none
 exe "hi! hsniceoperator"     . s:fg_cyan   .s:bg_none   .s:fmt_none
 " }}}
-
 
 " pandoc markdown syntax highlighting {{{
 " ---------------------------------------------------------------------
@@ -664,7 +647,6 @@ exe "hi! pandocMetadata"                 .s:fg_blue   .s:bg_none   .s:fmt_bold
 hi! link pandocMetadataTitle             pandocMetadata
 " }}}
 
-
 " Highlight Trailing Space {{{
 " ---------------------------------------------------------------------
 if g:solarized_trailing == 1
@@ -676,3 +658,6 @@ if g:solarized_trailing == 1
   autocmd BufLeave * call clearmatches()
 endif
 " }}}
+
+" ----------------------------------------------------------
+" vim:fen:fdm=marker:fmr={{{,}}}:fdl=0:fdc=1:ts=2:sts=2:sw=2
