@@ -314,15 +314,15 @@ exe "hi! WildMenu"       .s:fmt_none   .s:fg_base2  .s:bg_base02 .s:fmt_revbb
 exe "hi! Folded"         .s:fmt_undb   .s:fg_linenr .s:bg_linenr  .s:sp_base03
 exe "hi! FoldColumn"     .s:fmt_none   .s:fg_base0  .s:bg_linenr
 if has("gui_running")
-  exe "hi! DiffAdd"        .s:fmt_bold   .s:fg_green  .s:bg_base02 .s:sp_green
-  exe "hi! DiffChange"     .s:fmt_bold   .s:fg_yellow .s:bg_base02 .s:sp_yellow
-  exe "hi! DiffDelete"     .s:fmt_bold   .s:fg_red    .s:bg_base02
-  exe "hi! DiffText"       .s:fmt_bold   .s:fg_blue   .s:bg_base02 .s:sp_blue
+  exe "hi! DiffAdd"        .s:fmt_bold   .s:fg_green  .s:bg_linenr .s:sp_green
+  exe "hi! DiffChange"     .s:fmt_bold   .s:fg_yellow .s:bg_linenr .s:sp_yellow
+  exe "hi! DiffDelete"     .s:fmt_bold   .s:fg_red    .s:bg_linenr
+  exe "hi! DiffText"       .s:fmt_bold   .s:fg_blue   .s:bg_linenr .s:sp_blue
 else
-  exe "hi! DiffAdd"        .s:fmt_none   .s:fg_green  .s:bg_base02 .s:sp_green
-  exe "hi! DiffChange"     .s:fmt_none   .s:fg_yellow .s:bg_base02 .s:sp_yellow
-  exe "hi! DiffDelete"     .s:fmt_none   .s:fg_red    .s:bg_base02
-  exe "hi! DiffText"       .s:fmt_none   .s:fg_blue   .s:bg_base02 .s:sp_blue
+  exe "hi! DiffAdd"        .s:fmt_none   .s:fg_green  .s:bg_linenr .s:sp_green
+  exe "hi! DiffChange"     .s:fmt_none   .s:fg_yellow .s:bg_linenr .s:sp_yellow
+  exe "hi! DiffDelete"     .s:fmt_none   .s:fg_red    .s:bg_linenr
+  exe "hi! DiffText"       .s:fmt_none   .s:fg_blue   .s:bg_linenr .s:sp_blue
 endif
 exe "hi! SignColumn"     .s:fmt_none   .s:fg_none   .s:bg_linenr
 exe "hi! Conceal"        .s:fmt_none   .s:fg_blue   .s:bg_none
